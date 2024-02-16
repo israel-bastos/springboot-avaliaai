@@ -1,0 +1,25 @@
+name: CI/CD - Main Pipeline
+
+on:
+  pull_request:
+    branches: [ main ]
+
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository Code
+      uses: actions/checkout@v3
+
+    - name: Build and Test with Maven
+      uses: actions/setup-java@v3
+      with:
+          distribution: 'adopt'
+          java-version: '17'
+      run: |
+        mvn clean install
+        mvn test
