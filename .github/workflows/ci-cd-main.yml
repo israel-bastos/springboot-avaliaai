@@ -3,13 +3,7 @@ name: CI/CD - Main Pipeline
 on:
   pull_request:
     branches: [ main ]
-
-  merge_request:
-    branches: [ main ]
-
-  push:
-    branches: [ main ]
-
+    
 jobs:
   build:
     runs-on: ubuntu-latest
